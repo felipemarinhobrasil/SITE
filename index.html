@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Liberado</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
         body {
             background-color: black;
             color: white;
@@ -14,16 +16,21 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: 'Roboto', sans-serif;
         }
+
         .check-icon {
-            font-size: 100px;
-            color: #00FF00;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
         }
+
         .message {
             font-size: 2em;
             margin: 20px 0;
             text-align: center;
         }
+
         .button {
             background-color: #00FF00;
             color: black;
@@ -34,13 +41,15 @@
             text-decoration: none;
             transition: background-color 0.3s;
         }
+
         .button:hover {
             background-color: #007700;
         }
     </style>
 </head>
 <body>
-    <div class="check-icon">✔</div>
+    <!-- Ícone SVG -->
+    <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00FF00"><path d="M9 16.2l-3.5-3.5 1.41-1.41L9 13.38l7.09-7.09L17.5 7l-9 9z"/></svg>
     <div class="message">
         Ok, <br>ACESSO LIBERADO!
     </div>
