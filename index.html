@@ -101,13 +101,17 @@
 
   window.onload = function() {
     const { numero, foto } = getParams();
+    const profilePhoto = document.getElementById('profile-photo');
+    const fotoPadrao = "https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png";
+
     if (numero) {
       document.getElementById('phone-number').textContent = formatPhoneNumber(numero);
     }
+
     if (foto && foto !== "null") {
-      profilePhoto.src = foto;
+      profilePhoto.src = decodeURIComponent(foto);
     } else {
-      profilePhoto.src = "https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png";
+      profilePhoto.src = fotoPadrao;
     }
   };
 </script>
