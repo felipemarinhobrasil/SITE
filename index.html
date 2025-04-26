@@ -21,14 +21,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px 20px;
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    min-height: 350px;
+    justify-content: center;
+    position: relative;
   }
   .profile {
     text-align: center;
-    margin-top: 20px;
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
@@ -42,7 +44,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
   .profile h1 {
-    font-size: 18px;
+    font-size: 22px;
     margin: 10px 0 5px;
     color: #333;
   }
@@ -51,13 +53,16 @@
     color: #555;
     margin: 5px 0 15px;
   }
+  .loader-area {
+    text-align: center;
+  }
   .loader {
     width: 80%;
-    height: 0px;
+    height: 10px;
     background: #ddd;
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 20px;
+    margin: 20px auto 0;
   }
   .loader-bar {
     height: 100%;
@@ -71,10 +76,8 @@
     100% { width: 0%; }
   }
   .info-text {
-    margin-top: 20px;
     font-size: 16px;
     color: #777;
-    text-align: center;
   }
 </style>
 </head>
@@ -82,17 +85,18 @@
 
 <div class="app-container">
 
+  <div class="loader-area" id="loader-area">
+    <p class="info-text">Analisando os dados...</p>
+    <div class="loader">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
   <div class="profile" id="profile-container">
     <img id="profile-photo" src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" alt="Foto de Perfil">
     <h1>Contato Encontrado:</h1>
     <p id="phone-number">(00) 00000-0000</p>
   </div>
-
-  <div class="loader" id="loader">
-    <div class="loader-bar"></div>
-  </div>
-
-  <p class="info-text" id="info-text">Analisando os dados...</p>
 
 </div>
 
@@ -113,10 +117,9 @@
   window.onload = function() {
     const { numero, foto } = getParams();
     const profileContainer = document.getElementById('profile-container');
+    const loaderArea = document.getElementById('loader-area');
     const profilePhoto = document.getElementById('profile-photo');
     const phoneNumber = document.getElementById('phone-number');
-    const loader = document.getElementById('loader');
-    const infoText = document.getElementById('info-text');
     const fotoPadrao = "https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png";
 
     profileContainer.style.opacity = 0;
@@ -131,9 +134,8 @@
         profilePhoto.src = fotoPadrao;
       }
 
-      loader.style.display = 'none';
-      infoText.style.display = 'none';
-      profileContainer.style.opacity = 1;
+      loaderArea.style.display = 'none'; // esconde loader
+      profileContainer.style.opacity = 1; // mostra perfil
     }, 2500);
   };
 </script>
