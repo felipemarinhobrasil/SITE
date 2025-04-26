@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contato Encontrado</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   html, body {
     height: 100%;
-    width: 100%;
     margin: 0;
-    overflow: hidden;
     background: #f2f2f2;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
   }
   .app-container {
     height: 100%;
@@ -23,11 +21,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   .profile {
     text-align: center;
@@ -38,7 +36,7 @@
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid #00c853;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   .profile h1 {
     font-size: 20px;
@@ -48,38 +46,26 @@
   .profile p {
     font-size: 16px;
     color: #777;
-    margin: 0;
+    margin: 0 0 20px;
   }
-  .buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .loader {
+    width: 80%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
     margin-top: 20px;
   }
-  .button {
-    width: 100%;
-    padding: 12px;
-    background: white;
-    border: 2px solid #00c853;
-    color: #00c853;
-    text-align: center;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: default;
-    transition: background 0.3s, color 0.3s;
-  }
-  .button:hover {
+  .loader-bar {
+    height: 100%;
+    width: 0%;
     background: #00c853;
-    color: white;
+    animation: loading 2s infinite;
   }
-  .button i {
-    font-size: 18px;
+  @keyframes loading {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
   }
 </style>
 </head>
@@ -92,11 +78,11 @@
     <p id="phone-number">(00) 00000-0000</p>
   </div>
 
-  <div class="buttons">
-    <div class="button"><i class="fas fa-phone"></i> Ligar</div>
-    <div class="button"><i class="fas fa-video"></i> Vídeo</div>
-    <div class="button"><i class="fas fa-search"></i> Pesquisar</div>
+  <div class="loader">
+    <div class="loader-bar"></div>
   </div>
+
+  <p style="margin-top: 15px; font-size: 16px; color: #555;">Analisando os dados...</p>
 </div>
 
 <script>
