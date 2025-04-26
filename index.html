@@ -26,18 +26,6 @@
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
-  .header {
-    width: 100%;
-    background-color: #075E54;
-    color: white;
-    padding: 15px 0;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
   .profile {
     text-align: center;
     margin-top: 20px;
@@ -93,9 +81,6 @@
 <body>
 
 <div class="app-container">
-  <div class="header">
-    Perfil WhatsApp
-  </div>
 
   <div class="profile" id="profile-container">
     <img id="profile-photo" src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" alt="Foto de Perfil">
@@ -108,6 +93,7 @@
   </div>
 
   <p class="info-text" id="info-text">Analisando os dados...</p>
+
 </div>
 
 <script>
@@ -133,10 +119,8 @@
     const infoText = document.getElementById('info-text');
     const fotoPadrao = "https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png";
 
-    // Esconde o perfil enquanto carrega
     profileContainer.style.opacity = 0;
 
-    // Delay de carregamento (simulando busca)
     setTimeout(() => {
       if (numero) {
         phoneNumber.textContent = formatPhoneNumber(numero);
@@ -147,11 +131,10 @@
         profilePhoto.src = fotoPadrao;
       }
 
-      // Mostra o perfil e esconde o loading
       loader.style.display = 'none';
       infoText.style.display = 'none';
       profileContainer.style.opacity = 1;
-    }, 2500); // 2.5 segundos de atraso
+    }, 2500);
   };
 </script>
 
