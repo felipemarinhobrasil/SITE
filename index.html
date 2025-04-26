@@ -104,7 +104,7 @@
     if (numero) {
       document.getElementById('phone-number').textContent = formatPhoneNumber(numero);
     }
-    if (foto) {
+    if (foto && foto !== "null") {
       profilePhoto.src = foto;
     } else {
       profilePhoto.src = "https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png";
